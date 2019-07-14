@@ -1,27 +1,18 @@
 import React, { Component } from 'react';
-import { Image, View, Text } from 'react-native';
-import styles from './styles';
-import { Button, Toast, Carousel } from '@ant-design/react-native';
+import { View, Text } from 'react-native';
 
 import MySwiper from './compoments/mySwiper.js';
-
+import Recommend from './compoments/recommend.js';
+import NewPutAway from './compoments/newPutAway.js'
 
 export default class ListPage extends Component {
-
-    componentDidMount() {
-
-    }
-
-    onEndReached = (params) => {
-
-    }
 
     render() {
         return (
             <View>
                 <MySwiper />
-                <Text>专题推荐</Text>
-
+                <Recommend />
+                <NewPutAway />
             </View>
         );
     }

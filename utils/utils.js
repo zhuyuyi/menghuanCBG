@@ -44,3 +44,8 @@ export function scaleSize(size) {
     size = Math.round(size * scale + 0.5);
     return size / defaultPixel;
 }
+
+// 格式化数字
+export function format(num) {
+    return (num / 100).toFixed(2).replace(/\B(?=(\d{3})+\b)/g, ",").replace(/^/, "￥ ");
+};
