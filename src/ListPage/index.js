@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-
+import { View } from 'react-native';
 import MySwiper from './compoments/mySwiper.js';
 import Recommend from './compoments/recommend.js';
-import NewPutAway from './compoments/newPutAway.js'
+import NewPutAway from './compoments/newPutAway.js';
+
+import { deviceHeight } from './../../utils/utils';
 
 export default class ListPage extends Component {
 
     render() {
         return (
-            <View>
+            <View style={{ minHeight: deviceHeight, backgroundColor: '#f1f1f1' }}>
                 <MySwiper />
                 <Recommend />
-                <NewPutAway />
+                <NewPutAway
+
+                    navigation={this.props.navigation}
+                />
             </View>
         );
     }

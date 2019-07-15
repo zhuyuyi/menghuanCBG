@@ -80,75 +80,42 @@ const styles = StyleSheet.create({
         marginLeft: deviceWidth / 3.5,
         width: deviceWidth / 6.5,
     },
+    // 最新上架 box
     _newPutAwayOutBox: {
         marginTop: scaleSize(14),
         borderTopLeftRadius: 10,
         borderTopRightRadius: 10
     },
     newPutAwayOutBox: {
-        marginLeft: scaleSize(14),
-        width: deviceWidth / 1.05,
         backgroundColor: '#fff',
     },
-    // 最新上架 box
-    newPutAwayBox: {
-        width: deviceWidth / 1.05,
-        flexWrap: 'wrap',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'stretch',
+    myFont: {
+        color: '#888',
+        fontSize: setSpText(12),
     },
-    // item
-    newPutAwayItem: {
-        width: deviceWidth / 1.09,
-        borderTopColor: '#f0f0f0',
-        borderTopWidth: scaleSize(1),
-        flexWrap: 'wrap',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        paddingTop: scaleSize(20),
-        paddingBottom: scaleSize(20),
-        marginLeft: scaleSize(14),
+    myPadding: {
+        padding: scaleSize(4)
     },
-    middle: {
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
+    myPaddingLeft: {
+        paddingLeft: scaleSize(4)
+    },
+    myPaddingTopBottom: {
+        padding: scaleSize(10),
+    },
+    myBorderTop: {
+        borderTopColor: '#efefef',
+        borderTopWidth: 1
+    },
+    itemBgc: {
+        backgroundColor: '#fff',
+    },
+    imgBox: {
+        paddingRight: scaleSize(20)
     },
     newPutAwayItemHeader: {
         borderRadius: 10,
         width: scaleSize(120),
         height: scaleSize(120),
-    },
-    // item 中部
-    newPutAwayItemMiddle: {
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        paddingLeft: scaleSize(20),
-    },
-    newPutAwayItemMiddleItem: {
-        flexWrap: 'wrap',
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
-    },
-    schoolText: {
-        paddingRight: scaleSize(10),
-        color: '#555',
-        fontSize: setSpText(16)
-    },
-    line: {
-        color: '#ddd',
-    },
-    text: {
-        color: '#888',
-        fontSize: setSpText(12),
-    },
-    subText: {
-        paddingTop: scaleSize(2),
-        paddingLeft: scaleSize(10),
-    },
-    subTextRed: {
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
     },
     textRed: {
         fontSize: setSpText(12),
@@ -160,18 +127,9 @@ const styles = StyleSheet.create({
         borderRadius: 3,
         borderWidth: 1,
     },
-    // 右侧
-    newPutAwayItemRight: {
-        flexWrap: 'wrap',
-        flexDirection: 'column',
-        justifyContent: 'flex-start',
-    },
     deviceIcon: {
         width: scaleSize(25),
         height: scaleSize(25),
-    },
-    serverText: {
-        paddingRight: scaleSize(10)
     },
     money: {
         color: '#e74e4b',
@@ -181,8 +139,6 @@ const styles = StyleSheet.create({
     // 查看全部
     lookMoreBox: {
         marginTop: scaleSize(25),
-        justifyContent: 'center',
-        flexDirection: 'row',
     },
     lookMore: {
         lineHeight: scaleSize(40),

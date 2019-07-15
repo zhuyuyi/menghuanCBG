@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, ImageBackground, Image } from 'react-native';
+import { View, Text, Image } from 'react-native';
+import { WingBlank, WhiteSpace, Flex } from '@ant-design/react-native';
 import styles from './../styles.js';
 import { format } from './../../../utils/utils';
 
@@ -41,11 +42,15 @@ export default class NewPutAway extends Component {
 
         const {
             data
-        } = this.state
+        } = this.state;
+
+        const {
+            navigation
+        } = this.props;
 
         return (
             <View >
-                <View style={{ ...styles.newPutAwayOutBox, ...styles._newPutAwayOutBox }}>
+                <WingBlank size="md" style={{ ...styles.newPutAwayOutBox, ...styles._newPutAwayOutBox }}>
                     <Text style={styles.recommendTitle}>
                         <Image
                             style={styles.recommendTitleImage}
@@ -57,78 +62,104 @@ export default class NewPutAway extends Component {
                             source={require('./../../../libs/imgs/right.png')}
                         />
                     </Text>
-                </View>
-                <View style={{ ...styles.newPutAwayBox, ...styles.newPutAwayOutBox }}>
+                </WingBlank>
+                <View>
                     {
                         data.map((item, index) => {
                             return (
-                                <View key={index} style={styles.newPutAwayItem}>
-                                    <View style={styles.middle}>
-                                        <View>
-                                            <Image
-                                                style={styles.newPutAwayItemHeader}
-                                                source={require('./../../../libs/imgs/0005.png')}
-                                            />
-                                        </View>
-                                        <View style={styles.newPutAwayItemMiddle}>
-                                            <View style={styles.newPutAwayItemMiddleItem}>
-                                                <Text style={styles.schoolText}>
-                                                    {item.format_equip_name}
-                                                </Text>
-                                                <Text style={{ ...styles.text, ...styles.line }}>|</Text>
-                                                <Text style={{ ...styles.subText, ...styles.text }}>
-                                                    {item.level_desc}
-                                                </Text>
-                                            </View>
-                                            <View style={styles.newPutAwayItemMiddleItem}>
-                                                <Text style={styles.text}>
-                                                    {item.desc_sumup_short}
-                                                </Text>
-                                            </View>
-                                            <View style={styles.subTextRed}>
-                                                {
-                                                    item.highlights.map((i, index) => {
-                                                        return (
-                                                            <Text
-                                                                key={index}
-                                                                style={styles.textRed}
-                                                            >
-                                                                {i}
-                                                            </Text>
-                                                        )
-                                                    })
-                                                }
-                                            </View>
-                                        </View>
-                                    </View>
-                                    <View style={styles.newPutAwayItemRight}>
-                                        <View style={styles.newPutAwayItemMiddleItem}>
-                                            <Text style={{ ...styles.text, ...styles.serverText }}>
-                                                {item.area_name}-{item.server_name}
-                                            </Text>
-                                            <Text>
+                                <WingBlank
+                                    size="md"
+                                    style={styles.myBorderTop}
+                                    key={index}
+                                >
+                                    <Flex
+                                        justify="between"
+                                        align="start"
+                                        style={{ ...styles.myPaddingTopBottom, ...styles.itemBgc }}
+                                    >
+                                        <Flex>
+                                            <View style={styles.imgBox}>
                                                 <Image
-                                                    style={styles.deviceIcon}
-                                                    source={require('./../../../libs/imgs/apple.png')}
+                                                    style={styles.newPutAwayItemHeader}
+                                                    source={require('./../../../libs/imgs/0005.png')}
                                                 />
-                                            </Text>
-                                        </View>
-                                        <View>
-                                            <Text style={styles.money}>
-                                                {item.price && format(item.price)}
-                                            </Text>
-                                        </View>
-                                    </View>
-                                </View>
+                                            </View>
+                                            <Flex
+                                                direction="column"
+                                                justify="between"
+                                                align="start"
+
+                                            >
+                                                <Flex style={styles.myPadding}>
+                                                    <Text style={{ ...styles.myFont }}>
+                                                        {item.format_equip_name}
+                                                    </Text>
+                                                    <Text style={{ ...styles.myFont }}> | </Text>
+                                                    <Text style={{ ...styles.myFont }}>
+                                                        {item.level_desc}
+                                                    </Text>
+                                                </Flex>
+                                                <Flex style={styles.myPadding}>
+                                                    <Text style={{ ...styles.myFont }}>
+                                                        {item.desc_sumup_short}
+                                                    </Text>
+
+                                                </Flex>
+                                                <Flex style={styles.myPadding}>
+                                                    {
+                                                        item.highlights.map((i, idx) => {
+                                                            return (
+                                                                <Text
+                                                                    style={styles.textRed}
+                                                                    key={idx}
+                                                                >
+                                                                    {i}
+                                                                </Text>
+                                                            )
+                                                        })
+                                                    }
+                                                </Flex>
+                                            </Flex>
+                                        </Flex>
+                                        <Flex
+                                            direction="column"
+                                            style={styles.myPadding}
+                                        >
+                                            <Flex
+                                                align="stretch"
+                                            >
+                                                <Text style={{ ...styles.myFont }}>
+                                                    {item.area_name}-{item.server_name}
+                                                </Text>
+                                                <Text style={styles.myPaddingLeft}>
+                                                    <Image
+                                                        style={styles.deviceIcon}
+                                                        source={require('./../../../libs/imgs/apple.png')}
+                                                    />
+                                                </Text>
+                                            </Flex>
+                                            <Flex>
+                                                <Text style={styles.money}>
+                                                    {item.price && format(item.price)}
+                                                </Text>
+                                            </Flex>
+                                        </Flex>
+                                    </Flex>
+                                </WingBlank>
                             )
                         })
                     }
                 </View>
-                <View style={styles.lookMoreBox}>
-                    <Text style={styles.lookMore}>
+                <Flex
+                    justify="center"
+                    style={styles.lookMoreBox}
+                >
+                    <Text style={styles.lookMore} onPress={() => {
+                        navigation.navigate('LongList')
+                    }}>
                         查看全部
                     </Text>
-                </View>
+                </Flex>
             </View>
         )
     }
