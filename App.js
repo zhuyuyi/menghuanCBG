@@ -1,9 +1,27 @@
 import React, { Component } from 'react';
-import { Provider } from '@ant-design/react-native';
+// import { Provider } from '@ant-design/react-native';
 import { createAppContainer, createStackNavigator } from 'react-navigation';
+import { create } from 'dva-core';
+import { Provider } from 'react-redux';
 
-import LongList from './src/LongListPage'
-import Tab from './src/BottomTabBar'
+import ListPage from './src/ListPage/models/api.js'
+
+import LongList from './src/LongListPage';
+import Tab from './src/BottomTabBar';
+
+const app = create();
+
+const models = [ListPage];
+
+models.forEach((o) => {
+    // 装载models对象
+    app.model(o);
+});
+
+app.start();
+
+const store = app._store
+
 
 const MyRouter = createAppContainer(createStackNavigator({
     Homes: {
@@ -29,7 +47,7 @@ export default class MyAndroid extends Component {
 
     render() {
         return (
-            <Provider>
+            <Provider store={store}>
                 <MyRouter />
             </Provider>
         );
