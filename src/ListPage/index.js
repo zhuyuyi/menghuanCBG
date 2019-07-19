@@ -6,8 +6,17 @@ import NewPutAway from './compoments/newPutAway.js';
 import { connect } from 'react-redux';
 
 import { deviceHeight } from './../../utils/utils';
+// actions
+import { apiToProps } from './../../actions/api.js'
 
 class ListPage extends Component {
+
+    componentDidMount() {
+        const {
+            dispatch
+        } = this.props;
+        apiToProps(dispatch)
+    }
 
     render() {
         console.log(this.props)
@@ -16,7 +25,6 @@ class ListPage extends Component {
                 <MySwiper />
                 <Recommend />
                 <NewPutAway
-
                     navigation={this.props.navigation}
                 />
             </View>
@@ -24,11 +32,8 @@ class ListPage extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    console.log(state, '111')
+export default connect((state) => {
     return {
-        zyy: state.zyy
+        listPage: state.listPage
     }
-}
-
-export default connect(mapStateToProps)(ListPage)
+})(ListPage)

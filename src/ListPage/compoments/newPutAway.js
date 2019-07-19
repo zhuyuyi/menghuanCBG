@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, Image } from 'react-native';
-import { WingBlank, WhiteSpace, Flex } from '@ant-design/react-native';
+import { WingBlank, Flex } from '@ant-design/react-native';
 import styles from './../styles.js';
 import { format } from './../../../utils/utils';
 
